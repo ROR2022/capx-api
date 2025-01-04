@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards, Req, Put } from '@nestjs/common';
 import { PortfolioService } from './portfolio.service';
-import { CreatePortfolioDto, UnitStock } from './dto/create-portfolio.dto';
-import { UpdatePortfolioDto } from './dto/update-portfolio.dto';
+import { UnitStock } from './dto/create-portfolio.dto';
+//import { UpdatePortfolioDto } from './dto/update-portfolio.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('portfolio')
@@ -10,10 +10,10 @@ export class PortfolioController {
   constructor(private readonly portfolioService: PortfolioService) {}
 
   
-  @Post()
+  /* @Post()
   create(@Body() createPortfolioDto: CreatePortfolioDto) {
     return this.portfolioService.create(createPortfolioDto);
-  }
+  } */
 
   @UseGuards(AuthGuard)
   @Post("addStock")
@@ -43,7 +43,7 @@ export class PortfolioController {
   }
 
 
-  @Get()
+  /* @Get()
   findAll() {
     return this.portfolioService.findAll();
   }
@@ -51,7 +51,7 @@ export class PortfolioController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.portfolioService.findOne(id);
-  }
+  } */
 
   @UseGuards(AuthGuard)
   @Put('updateStocks')
@@ -65,7 +65,7 @@ export class PortfolioController {
   
   
 
-  @Patch(':id')
+  /* @Patch(':id')
   update(@Param('id') id: string, @Body() updatePortfolioDto: UpdatePortfolioDto) {
     return this.portfolioService.update(id, updatePortfolioDto);
   }
@@ -73,5 +73,5 @@ export class PortfolioController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.portfolioService.remove(id);
-  }
+  } */
 }

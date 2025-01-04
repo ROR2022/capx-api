@@ -1,14 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { StockService } from './stock.service';
-import { CreateStockDto } from './dto/create-stock.dto';
-import { UpdateStockDto } from './dto/update-stock.dto';
+//import { CreateStockDto } from './dto/create-stock.dto';
+//import { UpdateStockDto } from './dto/update-stock.dto';
 
 @Controller('stock')
 export class StockController {
   //eslint-disable-next-line
   constructor(private readonly stockService: StockService) {}
 
-  @Post()
+  /* @Post()
   create(@Body() createStockDto: CreateStockDto) {
     return this.stockService.create(createStockDto);
   }
@@ -31,7 +31,7 @@ export class StockController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.stockService.remove(id);
-  }
+  } */
 
   @Get('query/:query')
   getDataStockByQuery(@Param('query') query: string) {
