@@ -75,13 +75,13 @@ export const getCompanyProfileBySymbol = async (symbol: string) => {
 };
 
 export const getStockPriceBySymbol = async (symbol: string) => {
-  console.log('getting stock price by symbol axios: ', symbol);
+  //console.log('getting stock price by symbol axios: ', symbol);
   const serviceEndpoint = '/quote';
   try {
     const response: any = await axios.get(
       `${basicFinnhubUrl}${serviceEndpoint}?symbol=${symbol}&token=${FINNHUB_APIKEY}`,
     );
-    console.log('response getStockPriceBySymbol: ', symbol, response.data);
+    //console.log('response getStockPriceBySymbol: ', symbol, response.data);
     const { data, error } = response;
     if (data && !error) {
       return { ...data, symbol };
